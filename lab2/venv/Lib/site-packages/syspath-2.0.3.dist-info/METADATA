@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: syspath
+Version: 2.0.3
+Summary: Easily add common paths to sys.path
+Home-page: https://github.com/albertyw/syspath
+Author: Albert Wang
+Author-email: git@albertyw.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Provides-Extra: dev
+Provides-Extra: test
+
+SysPath
+=======
+
+|PyPI| |Python Versions|
+
+|Circle CI| |Dependency Status| |Code Climate| |Test Coverage|
+
+
+SysPath is a package to easily set common paths into ``sys.path``.  Instead of
+having to do a lot of path manipulation to properly import files, a file can
+import from SysPath instead.
+
+Installation
+------------
+
+.. code:: bash
+
+    pip install syspath
+
+Usage
+-----
+
+To append the current file's directory to ``sys.path``:
+
+.. code:: python
+
+    import syspath
+    syspath.append_current_path()
+    # or
+    from syspath import current_path
+
+To append the current file's parent directory to ``sys.path``:
+
+.. code:: python
+
+    import syspath
+    syspath.append_parent_path()
+    # or
+    from syspath import parent_path
+
+To append the current file's git repository root to ``sys.path``:
+
+.. code:: python
+
+    import syspath
+    syspath.append_git_root()
+    # or
+    from syspath import git_root
+
+Each of the shortcut modules also provide a ``path`` variable that can be used
+to get the path added.
+
+Development
+-----------
+
+.. code:: bash
+
+    pip install -r requirements-test.txt
+    mypy syspath --strict
+    coverage run setup.py test
+    coverage report
+    flake8
+
+Publishing
+----------
+
+.. code:: bash
+
+    pip install twine
+    python setup.py sdist bdist_wheel
+    twine upload dist/*
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/syspath.svg
+   :target: https://pypi.python.org/pypi/syspath/
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/syspath.svg
+   :target: https://github.com/albertyw/syspath
+.. |Circle CI| image:: https://circleci.com/gh/albertyw/req-update.svg?style=shield
+   :target: https://circleci.com/gh/albertyw/req-update
+.. |Dependency Status| image:: https://pyup.io/repos/github/albertyw/syspath/shield.svg
+   :target: https://pyup.io/repos/github/albertyw/syspath/
+.. |Code Climate| image:: https://codeclimate.com/github/albertyw/syspath/badges/gpa.svg
+   :target: https://codeclimate.com/github/albertyw/syspath
+.. |Test Coverage| image:: https://codeclimate.com/github/albertyw/syspath/badges/coverage.svg
+   :target: https://codeclimate.com/github/albertyw/syspath/coverage
+
+
